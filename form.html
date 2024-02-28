@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .con{
+                font-style: arial;
+                padding: 50px;
+                height: 100vh;
+            }
+            input[type=text],input[type=password],input[type=tel],input[type=email],textarea{
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0 ;
+                display: inline-block;
+                border: none;
+                background-color: gainsboro;
+            }
+            div{
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .btn{
+                background-color: green;
+                color: white;
+                padding: 16px 20px;
+                margin-left: 250px;
+                width: 70%;
+               
+            }
+        </style>
+    </head>
+    <body>
+        <div class="con">
+            <h1>Registration form</h1>
+            <label><b>First name</b></label>
+            <input type="text" placeholder="firstname" required/>
+            <label><b>Last name</b></label>
+            <input type="text" placeholder="lastname" required/>
+            <div>
+                <label><b>Gender</b></label>
+                <label>Male</label>
+                <input type="radio" value="Male"/>
+                <label>Female</label>
+                <input type="radio" value="Female" />
+                <label>Other</label>
+                <input type="radio" value="other" />
+            </div>
+            <label><b>Phone no.</b></label>
+            <input type="tel" placeholder="ph no."/>
+            <label><b>Email</b></label>
+            <input type="email" placeholder="enter mail id" required/>
+            <label><b>Address</b></label>
+            <textarea rows="2" value="Address"></textarea>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="password" required/>
+            <button type="submit" class="btn">Submit</button>     
+          </div>
+    </body>
+</html>
