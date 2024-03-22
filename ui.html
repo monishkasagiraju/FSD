@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery UI Interactions</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    #draggable {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      padding: 10px;
+    }
+    #droppable {
+      width: 150px;
+      height: 150px;
+      background-color: lightgreen;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="draggable">
+  <p>Drag me</p>
+</div>
+ 
+<div id="droppable">
+  <p>Drop here</p>
+</div>
+
+<script>
+  $( function() {
+    // Make the draggable element draggable
+    $( "#draggable" ).draggable();
+    
+    // Make the droppable element droppable, and define what happens when a draggable element is dropped on it
+    $( "#droppable" ).droppable();
+      
+    
+  });
+</script>
+
+</body>
+</html>

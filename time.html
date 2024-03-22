@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable Data</title>
+</head>
+<body>
+    <div id="timetableData"></div>
+
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var responseXML = xhr.responseXML;
+                var events = responseXML.getElementsByTagName("event");
+                var timetableData = document.getElementById("timetableData");
+                for (var i = 0; i < events.length; i++) {
+                    var event = events[i];
+                    var date = event.querySelector("date").textContent;
+
+                    // Create a paragraph for the day's name
+                    var dayInfo = document.createElement("p");
+                    dayInfo.textContent = "Day: " + date;
+                    timetableData.appendChild(dayInfo);
+
+                    var periods = event.getElementsByTagName("period");
+                    for (var j = 0; j < periods.length; j++) {
+                        var period = periods[j];
+                        var time = period.querySelector("time").textContent;
+                        var description = period.querySelector("description").textContent;
+                        var periodInfo = document.createElement("p");
+                        periodInfo.textContent = "Time: " + time + ", Subject: " + description;
+                        timetableData.appendChild(periodInfo);
+                    }
+                }
+            } else {
+                console.error("Failed to retrieve timetable data. Status code: " + xhr.status);
+            }
+        };
+        xhr.open("GET", "timetab.xml", true);
+        xhr.send();
+    </script>
+</body>
+</html>
